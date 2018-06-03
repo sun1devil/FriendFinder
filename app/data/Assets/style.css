@@ -1,3 +1,7 @@
-jumbotron{
-background-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmMrfOQNSU1VwIM7nyXCnJ52Z-3-VHNd0V0XfWZoyT_e6tXilj"
+.jumbotron{
+background: url("/app/data/Assets/Bros.jpg");
+}
+
+#body{
+background-color: blue;
 }
