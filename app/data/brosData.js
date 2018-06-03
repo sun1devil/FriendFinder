@@ -5,8 +5,8 @@ var bros = [
 
 {
     "bro":"Joey",
-    "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores":[
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMTn0XvQqxx2E6mDbGib3skSWjQP9fwZOQcbe6PIi_hT3FL2jM8g",
+    "scores": [
         5,
         1,
         4,
@@ -20,3 +20,6 @@ var bros = [
       ]
   },
 ];
+
+console.log(bros);
+module.exports = bros;

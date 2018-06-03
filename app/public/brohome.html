@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Bro Finder</title>
@@ -11,18 +12,31 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="jumbotron">
-          <h1>BRO FINDER</h1>
-          <h3>The best place to find a Bro like you. So you can Bro out all the time!!</h3>
-          <hr>
-          <a href="/app/public/survey.html"><button class="btn btn-danger btn-lg"><span class="bro-bro"></span> Go Bro!</button></a>
-        </div>
-        <div class="row">
+  <div class="container">
+    <div class="jumbotron" id="page-header">
+      <h1>BRO FINDER</h1>
+      <h3>The best place to find a Bro like you. So you can Bro out all the time!!</h3>
+      <hr>
+      <a href="/app/public/survey.html">
+        <button class="btn btn-danger btn-lg" id="go-bro">
+          <span class="bro-bro"></span> Go Bro!</button>
+      </a>
+    </div>
+    <div class="row">
     
-         
+        <footer class="footer" id = "footer">
+            <div class="container">
+              <p><a href="/api/bros">See all Bros</a>
+            </div>
+          </footer>
+      
+
+
+
 
 </body>
+
 </html>

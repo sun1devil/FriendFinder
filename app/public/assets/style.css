@@ -1,0 +1,16 @@
+#page-header{
+
+}
+
+#go-bro{
+    color: White;
+    background-color: blue;
+    border-color: black;
+    align-self: center;
+    float: Right;
+}
+
+body{
+    background: url("../assets/Bros.jpg");
+    size: 100%
+}

@@ -15,7 +15,8 @@ app.use(bodyParser.json());
 
 console.log("Sup Bros");
 
-
+require('./app/routing/apiroutes.js')(app); 
+require('./app/routing/htmlroutes.js')(app);
 
 
 
