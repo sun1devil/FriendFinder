@@ -19,6 +19,23 @@ var bros = [
         1
       ]
   },
+  {
+    "bro":"Johnny",
+    "photo": "http://farm4.static.flickr.com/3176/4560574984_30b433c714.jpg",
+    "scores": [
+        3,
+        2,
+        5,
+        1,
+        51,
+        1,
+        2,
+        4,
+        4,
+        5
+      ]
+  },
+
 ];
 
 console.log(bros);

@@ -3,24 +3,22 @@
 
 var brosData = require("../data/brosData");
 
-
-
-
 // Get list of Bros
 module.exports = function(app) {
-app.get("/api/bros", function(req, res) {
+app.get("/api/brosData", function(req, res) {
     return res.json(bros);
-    console.log(req);
+   
     console.log(res);
   });
 
-
 //   Post to Bros
 
-app.post("/api/bros", function(req, res) {
+app.post("/api/newBro", function(req, res) {
+    console.log('BACK END POST FIRED!')
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
     var newBro = req.body;
+    console.log(newBro)
   
     // Using a RegEx Pattern to remove spaces from newBro
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
@@ -33,7 +31,6 @@ app.post("/api/bros", function(req, res) {
     res.json(newBro);
   });
 }
-
 
 // Compatibility logic
 

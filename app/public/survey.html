@@ -15,13 +15,14 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>FIND YOUR BRO</h1>
-            <h3>Please answer some Bro based questions to find your "DopelBro"</h3>
-            <hr>
-            <a href="/app/public/brohome.html">
-                <button class="btn btn-danger btn-lg">
-                    <span class="bro-home"></span> Bro Home!</button>
-            </a>
+            <form method="post">
+                <h1>FIND YOUR BRO</h1>
+                <h3>Please answer some Bro based questions to find your "DopelBro"</h3>
+                <hr>
+                <a href="/app/public/brohome.html">
+                    <button class="btn btn-danger btn-lg">
+                        <span class="bro-home"></span> Bro Home!</button>
+                </a>
         </div>
         <div class="row">
 
@@ -157,6 +158,36 @@
                     <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
                         <i class="bro-bro" aria-hidden="true"></i>
                         Get My Bro!</button>
+                        </div>
+
+                    </form>
+
+                    <script type="text/javascript">
+                        $("#submit").click(function (e) {
+                            console.log("button");
+                            e.preventDefault();
+                            var newUser = {
+                                name: $("#name").val().trim(),
+                                photo: $("#photo").val().trim(),
+                                scores: [$('#q1 :selected').val(),
+                                $('#q2 :selected').val(),
+                                $('#q3 :selected').val(),
+                                $('#q4 :selected').val(),
+                                $('#q5 :selected').val(),
+                                $('#q6 :selected').val(),
+                                $('#q7 :selected').val(),
+                                $('#q8 :selected').val(),
+                                $('#q9 :selected').val(),
+                                $('#q10 :selected').val()
+                                ]
+                            }
+                            console.log(JSON.stringify(newUser));
+                            $.post('/api/newBro', newUser, function () {
+
+                            })
+                        })
+
+                    </script>
 
                     <footer class="footer" id="footer">
                         <div class="container">
@@ -164,8 +195,6 @@
                                 <a href="/api/bros">See all Bros</a>
                         </div>
                     </footer>
-
-
 
 </body>
 

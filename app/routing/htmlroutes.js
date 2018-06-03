@@ -7,16 +7,18 @@ var path = require("path");
 
 module.exports = function(app) {
 // Basic route that sends the user first to the survey Page
-app.get("/survey", function(req, res) {
-    res.sendFile(path.join(__dirname, "survey.html"));
-    console.log(req);
-    console.log(res);
-  });
-  
-  app.get("/brohome", function(req, res) {
-    res.sendFile(path.join(__dirname, "brohome.html"));
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/brohome.html"));
     console.log(req);
     console.log(res);
 
   });
-  };
+ 
+
+app.get("/survey", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/survey.html"));
+    console.log(req);
+    console.log(res);
+  });
+};
+ 
