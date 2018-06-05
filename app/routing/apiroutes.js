@@ -1,31 +1,61 @@
 // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
 // A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 
-var brosData = require("../data/brosData");
+var bros = require("../data/bros");
 
 // Get list of Bros
 module.exports = function(app) {
-app.get("/api/brosData", function(req, res) {
+app.get("/api/bros", function(req, res) {
     return res.json(bros);
    
-    console.log(res);
+   
   });
 
-//   Post to Bros
 
-app.post("/api/newBro", function(req, res) {
-    console.log('BACK END POST FIRED!')
+
+app.post("/api/bros", function(req, res,) {
+    // console.log('hello"')
+
+
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
     var newBro = req.body;
-    console.log(newBro)
+    // console.log(newBro)
   
+
+    var broName = newBro.name
+    var broPhoto = newBro.photo
+    var broScore = newBro.scores;
+    // console.log(broName);
+    // console.log(broPhoto);
+    // console.log(broScore)
+    
+        
+    var totalDifference = 100
+    
+
+    for (var i = 0; i < bros.length; i++){
+    //    console.log("friend =" + JSON.stringify(bros[i]))
+    var diff = 0
+        for (var j = 0; j <broScore.length; j++){
+            diff += Math.abs(bros[i].scores[j] - broScore[j]);
+            console.log(diff);
+                    }
+    
+    };
+   
+    if (diff < totalDifference){
+        	console.log('Bro Match! = ' + diff);
+            console.log('Friend name = ' + bros[i].name);
+            console.log('Friend image = ' + bros[i].photo);
+
+    }
+    
     // Using a RegEx Pattern to remove spaces from newBro
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
     newBro.routeName = newBro.name.replace(/\s+/g, "").toLowerCase();
   
-    console.log(newBro);
-  
+    
     bros.push(newBro);
   
     res.json(newBro);
@@ -40,6 +70,8 @@ app.post("/api/newBro", function(req, res) {
 // With that done, compare the difference between current user's scores against those from other users, question by question. Add up the differences to calculate the totalDifference.
 
 // Example: 
+
+
 
 // User 1: [5, 1, 4, 4, 5, 1, 2, 5, 4, 1]
 

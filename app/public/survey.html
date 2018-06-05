@@ -154,47 +154,69 @@
                         <option value="5">5 (Whatever I got as a gift)</option>
                     </select>
 
+                    <div class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Modal body text goes here.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
                         <i class="bro-bro" aria-hidden="true"></i>
                         Get My Bro!</button>
-                        </div>
+                </div>
 
-                    </form>
+                </form>
 
-                    <script type="text/javascript">
-                        $("#submit").click(function (e) {
-                            console.log("button");
-                            e.preventDefault();
-                            var newUser = {
-                                name: $("#name").val().trim(),
-                                photo: $("#photo").val().trim(),
-                                scores: [$('#q1 :selected').val(),
-                                $('#q2 :selected').val(),
-                                $('#q3 :selected').val(),
-                                $('#q4 :selected').val(),
-                                $('#q5 :selected').val(),
-                                $('#q6 :selected').val(),
-                                $('#q7 :selected').val(),
-                                $('#q8 :selected').val(),
-                                $('#q9 :selected').val(),
-                                $('#q10 :selected').val()
-                                ]
-                            }
-                            console.log(JSON.stringify(newUser));
-                            $.post('/api/newBro', newUser, function () {
+                <script type="text/javascript">
+                    $("#submit").click(function (event) {
+                        event.preventDefault();
+                        var newBro = {
+                            name: $("#name").val().trim(),
+                            photo: $("#photo").val().trim(),
+                            scores: [$('#q1 :selected').val(),
+                            $('#q2 :selected').val(),
+                            $('#q3 :selected').val(),
+                            $('#q4 :selected').val(),
+                            $('#q5 :selected').val(),
+                            $('#q6 :selected').val(),
+                            $('#q7 :selected').val(),
+                            $('#q8 :selected').val(),
+                            $('#q9 :selected').val(),
+                            $('#q10 :selected').val()
+                            ]
+                        }
+                        console.log(JSON.stringify(newBro));
+                        $.post('/api/bros', newBro, function () {
 
-                            })
                         })
+                    })
 
-                    </script>
+                    
+                </script>
 
-                    <footer class="footer" id="footer">
-                        <div class="container">
-                            <p>
-                                <a href="/api/bros">See all Bros</a>
-                        </div>
-                    </footer>
+
+
+                <footer class="footer" id="footer">
+                    <div class="container">
+                        <p>
+                            <a href="/api/bros">See all Bros</a>
+                    </div>
+                </footer>
 
 </body>
 
