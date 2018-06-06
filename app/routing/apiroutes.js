@@ -11,11 +11,7 @@ module.exports = function (app) {
 
     });
 
-
-
-    app.post("/api/bros", function (req, res, ) {
-        // console.log('hello"')
-
+    app.post("/api/bros", function (req, res,) {
 
         // req.body hosts is equal to the JSON post sent from the user
         // This works because of our body-parser middleware
@@ -23,32 +19,28 @@ module.exports = function (app) {
         var newBro = req.body;
 
         var broScore = newBro.scores;
-        
+
         var totalDifference = 100;
 
         var broMatch;
 
 
         for (var i = 0; i < bros.length; i++) {
-            //    console.log("friend =" + JSON.stringify(bros[i]))
             var diff = 0
             for (var j = 0; j < broScore.length; j++) {
-                diff += Math.abs(bros[i].scores[j] - broScore[j]);
-        
-                if (diff < totalDifference) {
-                    totalDifference = diff;
-                    broMatch = bros[i];
-                    
-                }
-                bros.push(newBro);
+                diff += Math.abs(bros[i].scores[j] - broScore[j]); 
+            }
+            if (diff < totalDifference) {
+                totalDifference = diff;
+                broMatch = bros[i];
+                
             }
         }
+   
+    bros.push(newBro);
+    res.json(broMatch);
+
+});
 
 
-             
-        res.json(broMatch);
-
-    });
-
-};
-
+}
