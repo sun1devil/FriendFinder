@@ -19,72 +19,72 @@ var bros = [
         1
       ]
   },
-//   {
-//     "bro":"Johnny",
-//     "photo": "http://farm4.static.flickr.com/3176/4560574984_30b433c714.jpg",
-//     "scores": [
-//         5,
-//         5,
-//         5,
-//         5,
-//         5,
-//         5,
-//         5,
-//         5,
-//         5,
-//         5,
-//     ]
-//   },
-//   {
-//     "bro":"Teddy",
-//     "photo": "http://farm4.static.flickr.com/3176/4560574984_30b433c714.jpg",
-//     "scores": [
-//         3,
-//         2,
-//         5,
-//         1,
-//         5,
-//         1,
-//         2,
-//         4,
-//         4,
-//         5
-//       ]
-//   },
-//   {
-//     "bro":"Jimboy",
-//     "photo": "http://farm4.static.flickr.com/3176/4560574984_30b433c714.jpg",
-//     "scores": [
-//         3,
-//         2,
-//         5,
-//         1,
-//         5,
-//         1,
-//         2,
-//         4,
-//         4,
-//         5
-//       ]
-//   },
-//   {
-//     "bro":"Stevie",
-//     "photo": "http://farm4.static.flickr.com/3176/4560574984_30b433c714.jpg",
-//     "scores": [
-//         1,
-//         1,
-//         1,
-//         1,
-//         1,
-//         1,
-//         1,
-//         1,
-//         1,
-//         1,
-//     ]
-//   },
+  {
+    "bro":"Chad",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPukzVxz_UzGb7nisytAlGP4DtnSLbXa3CbVjSYxUn-IxIQThq",
+    "scores": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+    ]
+  },
+  {
+    "bro":"Teddy",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjpgavhcsIbRuDLOWm_zomzYykWWyTWgvMOqCFwVB7KcePWJAB",
+    "scores": [
+        3,
+        2,
+        5,
+        1,
+        5,
+        1,
+        2,
+        4,
+        4,
+        5
+      ]
+  },
+  {
+    "bro":"Jimboy",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkf1AlNCfIoseGY3Jk_kyumLh2pnLyno2w6xIBo5uIpW59OuLvtg",
+    "scores": [
+        3,
+        2,
+        5,
+        1,
+        5,
+        1,
+        2,
+        4,
+        4,
+        5
+      ]
+  },
+  {
+    "bro":"Stevie",
+    "photo": "http://farm4.static.flickr.com/3176/4560574984_30b433c714.jpg",
+    "scores": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+    ]
+  },
 
 ];
 
-console.log(bros);
+
 module.exports = bros;

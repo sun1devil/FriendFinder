@@ -44,7 +44,7 @@
                     </h3>
                     <h4>1. Whats your favorite bar in the Marina?</h4>
                     <select data-placeholder="" class="chosen-select" id="q1">
-                        <option value=""></option>
+                       <option>select your answer</option>
                         <option value="1">1 (Tipsy Pig)</option>
                         <option value="2">2 (Reed and Greenough)</option>
                         <option value="3">3 (Dorian)</option>
@@ -54,7 +54,7 @@
 
                     <h4>2. Whats your golf handicap?.</h4>
                     <select data-placeholder="" class="chosen-select" id="q2">
-                        <option value=""></option>
+                       <option>select your answer</option>
                         <option value="1">Less than 1 (Scratch Golpher Brah!)</option>
                         <option value="2">0-5</option>
                         <option value="3">5-10</option>
@@ -66,7 +66,7 @@
 
                     <h4> 3. Your Favorite Sport?</h4>
                     <select data-placeholder="" class="chosen-select" id="q3">
-                        <option value=""></option>
+                       <option>select your answer</option>
                         <option value="1">1 (Golf Dummy!) </option>
                         <option value="2">2 (Hockey)</option>
                         <option value="3">3 (Football)</option>
@@ -78,7 +78,7 @@
 
                     <h4>4. Do you drink beer?</h4>
                     <select data-placeholder="" class="chosen-select" id="q4">
-                        <option value=""></option>
+                       <option>select your answer</option>
                         <option value="1">1 (Nah, only Whiskey) </option>
                         <option value="2">2 (I'll have a few) </option>
                         <option value="3">3 (Only with the Bros </option>
@@ -90,7 +90,7 @@
 
                     <h4>5. Your favorite Whiskey/Burbon?</h4>
                     <select data-placeholder="" class="chosen-select" id="q5">
-                        <option value=""></option>
+                       <option>select your answer</option>
                         <option value="1">1 (Basel Hayden) </option>
                         <option value="2">2 (Woodford Reserve)</option>
                         <option value="3">3 (Blanton's)</option>
@@ -102,7 +102,7 @@
 
                     <h4>6. Your favorite Bay area sports team?</h4>
                     <select data-placeholder="" class="chosen-select" id="q6">
-                        <option value=""></option>
+                       <option>select your answer</option>
                         <option value="1">1 (Raiders) </option>
                         <option value="2">2 (Niners)</option>
                         <option value="3">3 (Sharks)</option>
@@ -113,7 +113,7 @@
 
                     <h4>7. Which firm are you in Sales?</h4>
                     <select data-placeholder="" class="chosen-select" id="q7">
-                        <option value=""></option>
+                       <option>select your answer</option>
                         <option value="1">1 (Salesforce)</option>
                         <option value="2">2 (Iconiq Capital)</option>
                         <option value="3">3 (Goldman)</option>
@@ -124,7 +124,7 @@
 
                     <h4>8. Do you agree?: Never wear socks with short coudoroy shorts and boat shoes</h4>
                     <select data-placeholder="" class="chosen-select" id="q8">
-                        <option value=""></option>
+                       <option>select your answer</option>
                         <option value="1">1 (DUH! No Way Bro!)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -135,7 +135,7 @@
 
                     <h4>9. What car do you drive?.</h4>
                     <select data-placeholder="" class="chosen-select" id="q9">
-                        <option value=""></option>
+                       <option>select your answer</option>
                         <option value="1">1 (Lambo)</option>
                         <option value="2">2 (Rover)</option>
                         <option value="3">3 (G-Wagon)</option>
@@ -146,29 +146,29 @@
 
                     <h4>10. What kind of giant watch do you have?</h4>
                     <select data-placeholder="" class="chosen-select" id="q10">
-                        <option value=""></option>
+                        <option>select your answer</option>
                         <option value="1">1 (Rolex)</option>
                         <option value="2">2 (Hublot)</option>
                         <option value="3">3 (Breitling)</option>
                         <option value="4">4 (TAG Brah)</option>
                         <option value="5">5 (Whatever I got as a gift)</option>
                     </select>
-
-                    <div class="modal" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
+                    <!-- modal -->
+                    <div class="modal fade bd-example-modal-lg" id="match-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
                             <div class="modal-content">
+
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <h2 class="modal-title">Bro Found!!</h2>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Modal body text goes here.</p>
+                                    <h2 >Your Bromate is: </h2>
+                                    <h2 id="match-name"></h2>
+                                    <img id="match-img" alt="">
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -201,12 +201,38 @@
                             ]
                         }
                         console.log(JSON.stringify(newBro));
-                        $.post('/api/bros', newBro, function () {
+                        $.post('/api/bros', newBro, function (data) {
 
-                        })
+
+                            console.log(data)
+                            if (data) {
+                               
+                                $("#match-name").text(data.bro);
+                                $("#match-img").attr("src", data.photo);
+                                $("#match-modal").modal("show");
+
+                                // clear form
+                                $("#name").val("");
+                                $("#photo").val("");
+                                $('#q1').val("");
+                                $('#q2').val("");
+                                $('#q3').val("");
+                                $('#q4').val("");
+                                $('#q5').val("");
+                                $('#q6').val("");
+                                $('#q7').val("");
+                                $('#q8').val("");
+                                $('#q9').val("");
+                                $('#q10').val("");
+                                
+                            }
+
+                        });
+
+                      
                     })
 
-                    
+
                 </script>
 
 
